@@ -1,0 +1,141 @@
+% !TeX encoding = utf8
+
+\documentclass[
+	pdftex,     % compile with pdftex
+	a4paper,    % format is Din A4
+	12pt,       % normal text has fontsize 12
+	headsepline % have a line after the headline
+]{scrartcl}     % KOMA-Script use document class 'scrartcl'
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\renewcommand{\thesection}{\arabic{section}}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\usepackage[
+	a4paper,    % again have the format be DIN A4
+	left=2.5cm, % have spacing to the left
+	right=2cm,  % have spacing to the right
+	top=1.5cm,  % have spacing to the top
+	bottom=2cm  % have spacing to the bottom
+]{geometry}
+
+\usepackage[
+	nottoc,     % numbering the table of contents
+	notlot,     % numbering the list of tables
+	notlof,     % numbering the list of figures
+	numbib      % numbering bibliography items
+]{tocbibind}
+
+\usepackage{appendix}            % get appendix with letters instead of numbered sections
+
+\usepackage{verbatim}            % comment out blocks \begin{comment},\end{comment}
+\usepackage[ampersand]{easylist} % write numbered lists, using & as character
+                                 % \begin{easylist}
+                                 %	& entry1
+                                 %		&& subentry1
+                                 %	& entry2
+                                 % \end{easylist}
+                                 % defaults to 'enumerate', 'itemize' et al. also possible
+
+% NAVIGATION
+\usepackage{hyperref} % references are clickable
+\usepackage{url}      % URLs are well typeset
+
+% LANGUAGE
+\usepackage{lipsum}         % insert lorem ipsum with \lipsum
+%\usepackage{blindtext}
+%\usepackage[ngerman]{babel} % verwende deutsche Grammatik
+\usepackage[english]{babel} % use English grammar
+\usepackage[utf8]{inputenc} % Umlaute
+\usepackage[T1]{fontenc}    % Schriftart, T1 Fonts in Ausgabe zur Darstellung von Umlauten
+
+% TABLES
+\usepackage{array}                                             % advanced table
+\usepackage{longtable}                                         % table over several pages
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp} % for C,R,L
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}     % centered cell with fixed width
+\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}    % left-aligned cell with fixed width
+\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}   % right-aligned cell with fixed width
+
+% FIGURES / FLOATING OBJECTS
+\usepackage{graphicx}          % include graphics
+\usepackage{color}             % use colours
+\usepackage{xcolor}
+\usepackage{svg}               % insert svg
+\usepackage{wrapfig}           % wrap text around graphics
+\usepackage[section]{placeins} % advanced positioning of floating objects
+\usepackage{float}             % fixed positioning with [h],[H]
+\usepackage{framed}            % draw frames
+\usepackage{pdfpages}          % include pdf pages
+
+% CAPTIONS
+\usepackage{caption}                       % caption
+\usepackage{subcaption}                    % have subcaption under two or more graphics
+\setlength{\captionmargin}{10pt}           % have a margin on both sides
+\renewcommand{\captionfont}{\footnotesize} % caption has footnote size
+
+% CHEMISTRY
+\usepackage[version=4]{mhchem} % write chemical symbols
+\usepackage{chemmacros}        % write chemical symbols
+
+% MATHEMATICS
+\usepackage{amsmath}                                           % math environments
+\usepackage{amssymb}                                           % math symbols
+\usepackage{mathrsfs}                                          % math symbols
+\usepackage{wasysym}                                           % math symbols
+\usepackage{makeidx}                                           % create indices
+\usepackage{bbm}                                               % symbols like \mathbb but for numbers
+\usepackage{dsfont}                                            % doublestroke font
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}} % equations are numbered within sections
+
+% VECTOR NOTATION
+\usepackage{bm}              % bold and italic with \bm{}
+\newcommand{\vt}{\underline} % hand-writing notation
+\usepackage{esvect}          % arrows with \vv{}
+
+% SYMBOLS
+\usepackage{latexsym}    % more symbols
+\usepackage[misc]{ifsym} % more symbols, also selectable [clock],[weather],[electronic] ...
+\usepackage{eurosym}     % € symbol
+\usepackage{ifthen}      % tally (defined below, allow counting in packs of five)
+\newcounter{strokecount}
+\newcommand{\tally}[1]{\setcounter{strokecount}{#1}%
+	\whiledo{\value{strokecount}>5}%
+	{\addtocounter{strokecount}{-5}\StrokeFive}%
+	\ifthenelse{\value{strokecount}=5}{\StrokeFive}{}%
+	\ifthenelse{\value{strokecount}=4}{\StrokeFour}{}%
+	\ifthenelse{\value{strokecount}=3}{\StrokeThree}{}%
+	\ifthenelse{\value{strokecount}=2}{\StrokeTwo}{}%
+	\ifthenelse{\value{strokecount}=1}{\StrokeOne}{}}
+% write roman numerals with \rom{}
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+% DOCUMENT SETTINGS
+%\renewcommand*{\pagemark}{}         % unset page numbering
+\renewcommand*\contentsname{Summary} % rename TOC
+\graphicspath{{media/}}              % global path to files (figures, ...)
+\setlength{\parindent}{0mm}          % unset indentation of first line per paragraph
+%\parskip=0.5\baselineskip
+
+% CONFIG HEADLINE
+\pagestyle{myheadings} % set headers manually
+\markright{}
+
+% START OF DOCUMENT
+\begin{document}
+
+\pagenumbering{Roman}  % numbering at first is uppercase roman
+
+\tableofcontents
+
+\pagebreak             % break page without adding extra space at the end of it
+\pagenumbering{arabic} % numbering of else is arabic
+\setcounter{page}{1}   % sets page counter to 1
+
+\input{}
+
+%\begin{tabular}[x]{@{}c@{}}\mbox{}\\\mbox{}\end{tabular}
+
+\end{document}
