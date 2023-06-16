@@ -7,14 +7,15 @@ When that changes I'll rewrite the Vim Script parts in Lua.
 ## Setup
 
 To symlink to `~/.config/nvim` run:
-
 ```shell
 make
 ```
+Then install and setup [Plug](https://github.com/junegunn/vim-plug)
 
 If you want to use it on vim(1):
 1. Clone the repo into `~/.vim`
 2. Symlink to vimrc: `ln -s ~/.vim/init.vim ~/.vimrc`
+3. Install and setup [Plug](https://github.com/junegunn/vim-plug)
 
 ## Removal
 

@@ -5,7 +5,8 @@ dotdir = $(shell pwd)
 all: install
 
 install:
-	ln -sf ${dotdir}/config ~/.config/nvim
+	@ln -sf ${dotdir}/config ~/.config/nvim
+	@echo "config symlinked"
 	@echo "To install Plug (for plugin management) run:"
 	@echo "sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'"
 
