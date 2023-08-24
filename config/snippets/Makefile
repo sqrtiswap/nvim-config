@@ -39,7 +39,7 @@ cleanall: clean
 	@rm -f *.pdf
 
 notes:
-	$(LATEXCOMPILER) ${FILE}.tex
+	$(LATEXCOMPILER) $(LC_ARGS) ${FILE}.tex
 
 show: all
 	$(VIEWER) ${FILE}.pdf
