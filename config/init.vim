@@ -230,16 +230,16 @@ nnoremap ,html :-1read $HOME/.config/nvim/snippets/skeleton.html<CR>3jwf>a
 " f>       -> go to next >
 " a       -> enter insert mode after the cursor
 
-" get ICS license template
-nnoremap ,isc :-1read $HOME/.config/nvim/snippets/isc.license<CR>j6wi
+" get ISC licence template
+nnoremap ,isc :-1read $HOME/.config/nvim/snippets/isc.licence<CR>j6wi
 " get tex template
 nnoremap ,tex :-1read $HOME/.config/nvim/snippets/master.tex<CR>Gdd4kf{a
 " get tex makefile
-nnoremap ,make :-1read $HOME/.config/nvim/snippets/Makefile<CR>ggA
+nnoremap ,mk :-1read $HOME/.config/nvim/snippets/Makefile<CR>ggA
 " get usage template
-nnoremap ,sh.usage :-1read $HOME/.config/nvim/snippets/usage.sh<CR>2jA
-" get ansi colours
-nnoremap ,sh.colour :-1read $HOME/.config/nvim/snippets/colour.sh<CR>
+nnoremap ,shu :-1read $HOME/.config/nvim/snippets/usage.sh<CR>2jA
+" get ansi colours for shellscripts
+nnoremap ,shc :-1read $HOME/.config/nvim/snippets/colour.sh<CR>
 
 " ==============================================================================
 " REGISTERS:
