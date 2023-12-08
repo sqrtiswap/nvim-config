@@ -1,0 +1,25 @@
+IMAPStore <EMAIL>-remote
+Host <HOST>
+Port <PORT>
+User <USER>
+PassCmd "pass <FILE>"
+AuthMechs LOGIN
+SSLType IMAPS
+#CertificateFile /etc/ssl/cert.pem
+#CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore <EMAIL>-local
+Subfolders Verbatim
+Path ~/Emails/<PATH>/
+Inbox ~/Emails/<PATH>/INBOX
+
+Channel <EMAIL>
+Expunge Both
+Far :<EMAIL>-remote:
+Near :<EMAIL>-local:
+Patterns *
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile

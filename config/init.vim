@@ -240,6 +240,8 @@ nnoremap ,mk :-1read $HOME/.config/nvim/snippets/Makefile<CR>ggA
 nnoremap ,shu :-1read $HOME/.config/nvim/snippets/usage.sh<CR>2jA
 " get ansi colours for shellscripts
 nnoremap ,shc :-1read $HOME/.config/nvim/snippets/colour.sh<CR>
+" get ~/.mbsyncrc section template
+nnoremap ,mbs :-1read $HOME/.config/nvim/snippets/mbsyncrc<CR>Wi
 
 " ==============================================================================
 " REGISTERS:
