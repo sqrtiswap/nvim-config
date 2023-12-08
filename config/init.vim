@@ -242,6 +242,8 @@ nnoremap ,shu :-1read $HOME/.config/nvim/snippets/usage.sh<CR>2jA
 nnoremap ,shc :-1read $HOME/.config/nvim/snippets/colour.sh<CR>
 " get ~/.mbsyncrc section template
 nnoremap ,mbs :-1read $HOME/.config/nvim/snippets/mbsyncrc<CR>Wi
+" get ~/.config/mpop section template
+nnoremap ,mpop :-1read $HOME/.config/nvim/snippets/mpop<CR>jWi
 
 " ==============================================================================
 " REGISTERS:

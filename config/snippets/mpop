@@ -1,0 +1,14 @@
+defaults
+account <EMAIL>
+auth on
+tls on
+tls_starttls off
+# get with msmtp --serverinfo --tls --tls-certcheck=off --host=<HOST>
+tls_fingerprint <TLS FINGERPRINT>
+user <USER>
+host <HOST>
+port <PORT>
+delivery maildir ~/Emails/<PATH>/INBOX
+passwordeval pass <FILE>
+only_new on
+keep on
