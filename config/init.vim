@@ -69,18 +69,18 @@ if (has("termguicolors"))
 endif
 colorscheme gruvbox
 let g:lightline = { 'colorscheme': 'apprentice' }
-hi LineNrAbove     cterm=none guifg=grey ctermfg=grey
-hi LineNrBelow     cterm=none guifg=grey ctermfg=grey
-hi CursorLine      ctermbg=darkgrey
-hi CursorLineNr    cterm=bold gui=bold guifg=white ctermfg=white
-hi LineNr          cterm=bold gui=bold guifg=white ctermfg=white
-hi ColorColumn     ctermbg=darkgrey
-hi SignColumn      guibg=none ctermbg=none
+hi LineNrAbove     cterm=none gui=none ctermfg=grey guifg=grey
+hi LineNrBelow     cterm=none gui=none ctermfg=grey guifg=grey
+"hi CursorLine      ctermbg=darkgrey guibg=darkgrey
+hi CursorLineNr    cterm=bold gui=bold ctermfg=white guifg=lightred
+hi LineNr          cterm=bold gui=bold ctermfg=white guifg=magenta
+"hi ColorColumn     ctermbg=darkgrey guibg=darkgrey
+hi SignColumn      ctermbg=none guibg=none
 
 " gitgutter
-hi GitGutterAdd    cterm=bold ctermfg=lightgreen
-hi GitGutterChange cterm=bold ctermfg=lightyellow
-hi GitGutterDelete cterm=bold ctermfg=lightred
+hi GitGutterAdd    cterm=bold gui=bold ctermfg=lightgreen guifg=lightgreen
+hi GitGutterChange cterm=bold gui=bold ctermfg=yellow     guifg=red
+hi GitGutterDelete cterm=bold gui=bold ctermfg=red        guifg=red
 let g:gitgutter_override_sign_column_highlight = 1
 autocmd BufWritePost * GitGutter
 let g:gitgutter_realtime = 1
