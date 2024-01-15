@@ -145,15 +145,12 @@ set softtabstop=4         " See multiple spaces as tabstops so <BS> works
 set noexpandtab           " Never convert tabs to spaces (noet).
 
 autocmd BufRead,BufNewFile *.csv set ts=8 sw=8 noet colorcolumn&
-autocmd BufRead,BufNewFile *.tsv set ts=18 sw=18 noet colorcolumn&
+autocmd BufRead,BufNewFile *.tsv set ts=8 sw=8 noet colorcolumn&
 "augroup tsv
 "autocmd!
 	"au BufReadPost *.tsv setlocal tabstop=20
 "augroup END
 
-"autocmd BufRead,BufNewFile *.f90 set ts=2 sw=2 sts=2 et cc=80
-"autocmd BufRead,BufNewFile *.F90 set ts=2 sw=2 sts=2 et cc=80
-"autocmd FileType fortran set ts=2 sw=2 sts=2 et cc=80
 autocmd FileType magit set cc=72
 autocmd FileType gitcommit set cc=72
 
@@ -162,6 +159,8 @@ autocmd BufRead,BufNewFile *.py set ts=4 sw=4 sts=4 et cc=79
 autocmd FileType sh set ts=4 sw=4 sts=4 noet cc=80
 
 autocmd FileType mail set cc=72 noautoindent et
+
+autocmd FileType markdown set cc=80 ts=8 sw=8 noet sts=8
 
 " ==============================================================================
 " SEARCH:
