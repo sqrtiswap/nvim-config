@@ -51,6 +51,7 @@ Plug 'mg979/vim-visual-multi'          " multiple cursors
 Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/gv.vim'                 " git commit browser using vim-fugitive
 Plug 'Yggdroot/indentLine'             " advanced indentation display
+Plug 'ledger/vim-ledger'               " quality of life for ledger-cli
 call plug#end()
 
 " ======
@@ -113,6 +114,16 @@ nnoremap <Leader>gv :Gvdiff<CR>:windo set wrap<CR>
 " indentLine
 let g:indentLine_fileTypeExclude = ['tex','markdown']
 
+" vim-ledger
+au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
+let g:ledger_maxwidth = 80
+let g:ledger_fold_blanks = 1
+let g:ledger_date_format = '%Y/%m/%d'
+function LedgerSort()
+    :%! ledger -f - print --sort 'date, amount'
+    :%LedgerAlign
+endfunction
+command LedgerSort call LedgerSort()
 " ==============================================================================
 " WHITESPACE:
 set list
