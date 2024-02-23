@@ -1,0 +1,7 @@
+# vim: set ft=remind:
+
+INCLUDE [filedir()]/helpers.rem
+# white: #ffffff
+SET $DefaultColor "-1 -1 -1"
+SET $DefaultPrio 5000
+

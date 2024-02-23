@@ -256,6 +256,8 @@ nnoremap ,mbs :-1read $HOME/.config/nvim/snippets/mbsyncrc<CR>Wi
 nnoremap ,mpop :-1read $HOME/.config/nvim/snippets/mpop<CR>jWi
 " get ~/.config/mutt/accounts/<ID>-<ACCOUNT>.muttrc template
 nnoremap ,mutt :-1read $HOME/.config/nvim/snippets/muttrc<CR>3jI
+" get ~/.config/remind/file.rem template
+nnoremap ,rem :-1read $HOME/.config/nvim/snippets/remind.rem<CR>7jI
 
 " ==============================================================================
 " REGISTERS:
