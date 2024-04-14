@@ -48,7 +48,6 @@ Plug 'tpope/vim-fugitive'              " git blame support
 Plug 'junegunn/gv.vim'                 " git commit browser using vim-fugitive
 Plug 'mg979/vim-visual-multi'          " multiple cursors
 Plug 'ledger/vim-ledger'               " quality of life for ledger-cli
-Plug 'Yggdroot/indentLine'             " advanced indentation display
 Plug 'itchyny/lightline.vim'           " minimal statusline
 Plug 'gruvbox-community/gruvbox'       " colourscheme
 call plug#end()
@@ -97,9 +96,6 @@ nnoremap <leader>gP :! git push<CR>
 nnoremap <Leader>gb :Git blame<CR>
 nnoremap <Leader>gv :Gvdiff<CR>:windo set wrap<CR>
 
-" indentLine
-let g:indentLine_fileTypeExclude = ['tex','markdown']
-
 " vim-ledger
 au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 let g:ledger_maxwidth = 80
@@ -114,12 +110,8 @@ nnoremap ,ls :LedgerSort<CR>
 " ==============================================================================
 " WHITESPACE:
 set list
-set listchars=tab:▸\ ,trail:·,eol:⏎,nbsp:⎵  " more symbols: ⏎¬·▸⍿×┌┬┐⎵¦┆┊
-set list lcs=tab:\▸\                        " use indentLine
-autocmd BufWritePre * :%s/\s\+$//e          " Remove trailing whitespace when
-                                            " saving
-let g:indentLine_char = '¦'
-let g:indentLine_defaultGroup = 'SpecialKey'
+set listchars=tab:▸\ ,trail:·,nbsp:⎵  " more symbols: ⏎¬·▸⍿×┌┬┐⎵¦┆┊
+autocmd BufWritePre * :%s/\s\+$//e    " Remove trailing whitespace when saving
 
 " ==============================================================================
 " FILETYPES:
