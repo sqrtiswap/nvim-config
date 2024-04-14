@@ -110,6 +110,7 @@ function LedgerSort()
     :%LedgerAlign
 endfunction
 command LedgerSort call LedgerSort()
+nnoremap ,ls :LedgerSort<CR>
 " ==============================================================================
 " WHITESPACE:
 set list
