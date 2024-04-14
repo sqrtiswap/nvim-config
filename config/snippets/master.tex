@@ -5,8 +5,10 @@
 	12pt,       % normal text has fontsize 12
 	headsepline % have a line after the headline
 ]{scrartcl}     % KOMA-Script use document class 'scrartcl'
+
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
