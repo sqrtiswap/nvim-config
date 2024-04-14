@@ -13,6 +13,7 @@ set cc=80                   " Column boarder at 80 characters.
 set cursorline              " Highlight current line.
 set ttyfast                 " Speed up scrolling.
 set clipboard=unnamedplus   " Use system clipboard.
+set noswapfile              " Disable creating swap files.
 set scrolloff=7             " Center the cursor
 "set mousescroll=ver:5,hor:2
 set updatetime=100          " Reduce update delay
@@ -29,38 +30,28 @@ nnoremap gk k
 
 " ==============================================================================
 " BACKUP:
-set backup                  " Turn on backups
-set backupdir=~/.cache/nvim " Directory to store backup files
-set writebackup             " Make backup before overwriting current buffer
-set backupcopy=yes          " Overwrite original backup file
-" Meaningful backup name, ex: filename@2015-04-05.14:59
-au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
-
-" SWAP:
-set noswapfile              " Disable creating swap files
+set backup                                       " Turn on backups
+set backupdir=~/.cache/nvim                      " Directory to store backups
+set writebackup                                  " Backup before overwriting
+                                                 " current buffer
+set backupcopy=yes                               " Overwrite original backup
+au BufWritePre * let &bex = '@' . strftime("%F") " meaningful backup name, e.g
+                                                 " filename@2015-04-05
 
 " ==============================================================================
 " PLUGINS:
 command! PU PlugUpdate | PlugUpgrade
 call plug#begin('~/.config/nvim/pack')
 Plug 'airblade/vim-gitgutter'          " git signs
-Plug 'jreybert/vimagit'                " advanced git staging
+Plug 'jreybert/vimagit'                " Magit
 Plug 'tpope/vim-fugitive'              " git blame support
-Plug 'itchyny/lightline.vim'           " minimal statusline
-Plug 'mg979/vim-visual-multi'          " multiple cursors
-Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/gv.vim'                 " git commit browser using vim-fugitive
-Plug 'Yggdroot/indentLine'             " advanced indentation display
+Plug 'mg979/vim-visual-multi'          " multiple cursors
 Plug 'ledger/vim-ledger'               " quality of life for ledger-cli
+Plug 'Yggdroot/indentLine'             " advanced indentation display
+Plug 'itchyny/lightline.vim'           " minimal statusline
+Plug 'gruvbox-community/gruvbox'       " colourscheme
 call plug#end()
-
-" ======
-" gv.vim
-" o       commit in split
-" O       commit in tab
-" q       close
-" :GV     open
-" :GV!    open only affecting current file
 
 " ==============================================================================
 " COLOURS:
@@ -91,24 +82,19 @@ let g:gitgutter_sign_modified = '>'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
-" Jump between hunks
-nmap <Leader>gn <Plug>(GitGutterNextHunk)  " git next
-nmap <Leader>gp <Plug>(GitGutterPrevHunk)  " git previous
-" Hunk-add and hunk-revert for chunk staging
-nmap <Leader>ga <Plug>(GitGutterStageHunk) " git add (chunk)
-nmap <Leader>gu <Plug>(GitGutterUndoHunk)  " git undo (chunk)
-nmap <Leader>hv <Plug>(GitGutterPreviewHunk)
+
+nmap <leader>gn <Plug>(GitGutterNextHunk)
+nmap <leader>gp <Plug>(GitGutterPrevHunk)
+nmap <leader>ga <Plug>(GitGutterStageHunk)
+nmap <leader>gu <Plug>(GitGutterUndoHunk)
+nmap <leader>hv <Plug>(GitGutterPreviewHunk)
 
 " vimagit
-" Open vimagit pane
 nnoremap <leader>gs :Magit<CR>
-" Push to remote
 nnoremap <leader>gP :! git push<CR>
 
 " vim-fugitive
-" Show commits for every source line (git blame)
 nnoremap <Leader>gb :Git blame<CR>
-nnoremap <Leader>gh :Gsdiff<CR>:windo set wrap<CR>
 nnoremap <Leader>gv :Gvdiff<CR>:windo set wrap<CR>
 
 " indentLine
@@ -154,10 +140,8 @@ nohlsearch         " Do not immediately turn on highlighting.
 
 " ==============================================================================
 " FOLDING:
-" Folding should be set manually, never automatically.
-set foldmethod=manual
-" Do not fold anything by default.
-set foldlevel=999
+set foldmethod=manual " nevel fold automatically
+set foldlevel=999     " basically don't fold by default
 
 " ==============================================================================
 " FINDING FILES:
